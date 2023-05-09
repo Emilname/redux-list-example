@@ -1,0 +1,5 @@
+const CREATE = 'CREATE';
+const DELETE = 'DELETE';
+
+const COUNTER_PULL = 'COUNTER_PULL';
+

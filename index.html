@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Sample App</title>
+    <style>
+    html,
+    body{
+      height: 100%;
+    }
+
+    body{
+      font: 20px sans-serif;
+      background: #333;
+      color: #eee;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .redux {
+      background: mediumseagreen;
+      text-align: center;
+      padding: .1em;
+      margin: .1em;
+    }
+
+    .redux.warning {
+      background: tomato
+    }
+
+    .redux button {
+      margin: .2em;
+      padding: 1em;
+      font-size: 120%;
+      min-width: 3em;
+      cursor: pointer;
+    }
+
+    .add button {
+      cursor: pointer;
+      font-size: 500%;
+      margin-left: 0.2em;
+      color: lightgray;
+      background-color: transparent;
+      border: none;
+    }
+
+    .add button:hover {
+      color: white;
+    }
+
+    button:focus {
+      outline:0;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id='root'>
+    </div>
+    <script src="/static/bundle.js"></script>
+  </body>
+</html>
