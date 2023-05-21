@@ -1,11 +1,8 @@
-import { INCREMENT, DECREMENT } from './types';
-import { actionCreator } from '../actions';
+import { INCREMENT, DECREMENT, WARN } from "./types";
+import { actionCreator } from "../../../../actions";
 
-export const incrementAction = () => ({
-  type: INCREMENT,
-});
+export const increment = actionCreator(INCREMENT);
 
-export const decrementAction = () => ({
-  type: DECREMENT,
-});
+export const decrement = actionCreator(DECREMENT);
 
+export const warn = actionCreator(WARN);

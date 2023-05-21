@@ -1,15 +1,10 @@
-import { v4 as uuid } from 'uuid';
-import { COUNTER_PULL, CREATE, DELETE } from './types';
+import { v4 as uuid } from "uuid";
 
-const defaultPayloadCreator = (payload) => payload;
+import { actionCreator } from "../../actions";
 
-export const actionCreator =
-  (actionType, payloadCreator = defaultPayloadCreator) =>
-  (payload) => ({
-    type: `${COUNTER_PULL}/${actionType}`,
-    ...(payload ? { payload: payloadCreator(payload) } : {}),
-  });
+import { CREATE, DELETE } from "./types";
 
-export const createCounterPull = actionCreator(CREATE, (id) => ({ id: id || uuid() }));
-export const deleteCounterPull = actionCreator(DELETE, (id) => ({ id: id || uuid() }));
-
+export const createCounterPull = actionCreator(CREATE, ({ id }) => ({
+  id: id || uuid(),
+}));
+export const deleteCounterPull = actionCreator(DELETE);

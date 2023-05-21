@@ -1,6 +1,7 @@
-import { INCREMENT, DECREMENT } from './types';
+import createReducer from "../../../../createReducer";
+import { INCREMENT, DECREMENT, WARN } from "./types";
 
-const COUNTER_INITIAL_STATE = {
+export const COUNTER_INITIAL_STATE = {
   value: 0,
   warning: false,
 };
@@ -23,5 +24,4 @@ const actionHandlers = {
   [WARN]: handleWarnAction,
 };
 
-export default reducer(actionHandlers, COUNTER_INITIAL_STATE);
-
+export default createReducer(actionHandlers, COUNTER_INITIAL_STATE);

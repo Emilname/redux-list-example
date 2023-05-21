@@ -1,20 +1,22 @@
-const bindActionCreator =
-  (actionCreator, id) =>
+const bindParamsToActionCreator =
+  (actionCreator, params = {}) =>
   (...args) => {
     const actions = actionCreator(...args);
-    return { ...actions, payload: { id, ...actions.payload } };
+    return { ...actions, payload: { ...params, ...actions.payload } };
   };
 
-const bindActionCreatorMap = (creators, id) =>
+const bindActionCreatorMap = (creators, params) =>
   Object.fromEntries(
-    Object.entries(creators).map(([action, actionCreator]) => [action, bindActionCreator(actionCreator, id)])
+    Object.entries(creators).map(([action, actionCreator]) => [
+      action,
+      bindParamsToActionCreator(actionCreator, params),
+    ])
   );
 
-const bindIdToActionCreators = (actionCreators, id) => {
-  return typeof actionCreators === 'function'
-    ? bindActionCreator(actionCreators, id)
-    : bindActionCreatorMap(actionCreators, id);
+const bindIdToActionCreators = (actionCreators, params) => {
+  return typeof actionCreators === "function"
+    ? bindParamsToActionCreator(actionCreators, params)
+    : bindActionCreatorMap(actionCreators, params);
 };
 
 export default bindIdToActionCreators;
-
